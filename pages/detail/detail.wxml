@@ -1,0 +1,14 @@
+<!--pages/detail/detail.wxml-->
+<view class="title">{{detailTitle}}</view>
+<view class="addition-wrapper">
+  <view class="source">{{detailSource}}</view>
+  <view class="time">{{detailTime}}</view>
+  <view class="readCount">{{detailReadCount}}</view>
+</view>
+
+<view class="content">
+<view wx:for="{{detailText}}" class="text">
+  <view class="text-p">{{item.text}}</view>
+</view>
+<image class="image" src="{{detailImage}}" mode="aspectFit"></image>
+</view>
