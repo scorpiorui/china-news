@@ -1,33 +1,36 @@
 <!--index.wxml-->
 
 <view class="nav-bar">
-  <view class="nav" id="gn">国内</view>
-  <view class="nav" id="gj">国际</view>
-  <view class="nav" id="cj">财经</view>
-  <view class="nav" id="yl">娱乐</view>
-  <view class="nav" id="js">军事</view>
-  <view class="nav" id="ty">体育</view>
-  <view class="nav" id="other">其他</view>
+  <view class="nav" id="gn" bindtap='showNews'>国内</view>
+  <view class="nav" id="gj" bindtap='showNews'>国际</view>
+  <view class="nav" id="cj" bindtap='showNews'>财经</view>
+  <view class="nav" id="yl" bindtap='showNews'>娱乐</view>
+  <view class="nav" id="js" bindtap='showNews'>军事</view>
+  <view class="nav" id="ty" bindtap='showNews'>体育</view>
+  <view class="nav" id="other" bindtap='showNews'>其他</view>
 </view>
 
 <!--暂时无法直接使用news-image的first child（可能因为wx：for只能使用
 news-item的first child）来改变css，因此单独添加第一则新闻。缺点是JS因
 此会更加复杂。之后考虑能不能解决该问题。-->
 <view class='first-news-item'>
-  <view class="first-news-title">外媒称香港回归15年打破“经济将死”预言</view>
-  <view class="first-news-add-wrapper">
-    <view class="first-news-source">中国新闻网</view>
-    <view class="first-news-time">2012-07-01,09:34</view>
+  <view class="first-news-text-wrapper">
+    <view class="first-news-title">{{firstNews[0]}}</view>
+    <view class="first-news-add-wrapper">
+      <view class="first-news-source">{{firstNews[1]}}</view>
+      <view class="first-news-time">{{firstNews[2]}}</view>
+    </view>
   </view>
-  <image class="first-news-image" src="http://img1.gtimg.com/news/pics/hv1/38/85/1076/69988613.jpg"></image>
-    <image class="first-news-backImage" src="http://img1.gtimg.com/news/pics/hv1/38/85/1076/69988613.jpg"></image>
+  <image class="first-news-image" src="{{firstNews[3]}}"></image>
+    <image class="first-news-backImage" src="{{firstNews[3]}}"></image>
 </view>
 
-<view wx:for="{{[0,1,2]}}" class="news-item">
-  <view class="news-title">外媒称香港回归15年打破“经济将死”预言</view>
+<!--除了第一则新闻外的其他新闻List-->
+<view wx:for="{{newsList}}" class="news-item">
+  <view class="news-title">{{item.title}}</view>
   <view class="news-add-wrapper">
-    <view class="news-source">中国新闻网</view>
-    <view class="news-time">2012-07-01,09:34</view>
+    <view class="news-source">{{item.source}}</view>
+    <view class="news-time">{{item.date}}</view>
   </view>
-  <image class="news-image" src="http://img1.gtimg.com/news/pics/hv1/38/85/1076/69988613.jpg"></image>
+  <image class="news-image" mode="aspectFill" src="{{item.image}}"></image>
 </view>

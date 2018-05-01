@@ -15,6 +15,7 @@
   margin: 30rpx 0 0 15rpx;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
+  height: 260rpx;
 }
 /** 暂时不使用伪类定义第一个元素
 .news-item:nth-child(2){
@@ -24,9 +25,9 @@
 }
 **/
 .news-title{
-  margin-right: 15rpx;
-  font-size: 40rpx;
-  line-height: 56rpx;
+  margin-right: 260rpx;
+  font-size: 38rpx;
+  line-height: 53rpx;
 }
 .news-add-wrapper,.first-news-add-wrapper{
   position: absolute;
@@ -40,9 +41,10 @@
   margin-left:15rpx;
 }
 .news-image{
-  margin:0 20rpx 30rpx 0;
-  height:200rpx;
-  width: 400rpx;
+  position: absolute;
+  right:30rpx;
+  height:150rpx;
+  width: 200rpx;
 }
 
 /**定义第一个元素**/
@@ -51,6 +53,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   height: 560rpx;
 }
+
 .first-news-title{
   position:absolute;
   bottom:100rpx;
@@ -58,11 +61,13 @@
   font-size: 38rpx;
   line-height: 53rpx;
   color: white;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .first-news-add-wrapper{
   color: white;
   bottom: 40rpx;
   margin-left: 45rpx;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .first-news-image{
