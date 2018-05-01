@@ -1,1 +1,81 @@
 /**index.wxss**/
+.nav-bar{
+  display: flex;
+  background:linear-gradient(#4db8ff, #1aa3ff);
+  line-height: 100rpx;
+}
+.nav{
+  margin:0 15rpx 0 15rpx;
+  color: white;
+  font-size: 38rpx;
+}
+
+.news-item{
+  display: flex;
+  margin: 30rpx 0 0 15rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+/** 暂时不使用伪类定义第一个元素
+.news-item:nth-child(2){
+  height: 500rpx;
+  margin:30rpx 15rpx 15rpx 15rpx;
+  background-color: yellow;
+}
+**/
+.news-title{
+  margin-right: 15rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+.news-add-wrapper,.first-news-add-wrapper{
+  position: absolute;
+  bottom: 30rpx;
+  opacity: 0.8;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  display: flex;
+}
+.news-time,.first-news-time{
+  margin-left:15rpx;
+}
+.news-image{
+  margin:0 20rpx 30rpx 0;
+  height:200rpx;
+  width: 400rpx;
+}
+
+/**定义第一个元素**/
+.first-news-item{
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 560rpx;
+}
+.first-news-title{
+  position:absolute;
+  bottom:100rpx;
+  margin: 0 45rpx 0 45rpx;
+  font-size: 38rpx;
+  line-height: 53rpx;
+  color: white;
+}
+.first-news-add-wrapper{
+  color: white;
+  bottom: 40rpx;
+  margin-left: 45rpx;
+}
+
+.first-news-image{
+  width: 700rpx; /**为什么超出去反而border可以是透明**/
+  height: 500rpx;
+  border: 30rpx solid rgba(255, 255, 255, .2)
+}
+
+.first-news-backImage{
+  position: absolute;
+  top:0;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
