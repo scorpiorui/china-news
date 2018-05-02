@@ -4,10 +4,11 @@
     "pages/detail/detail"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#4db8ff",
     "navigationBarTitleText": "新闻快讯",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
   }
 }

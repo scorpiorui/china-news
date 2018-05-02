@@ -1,4 +1,6 @@
 /* pages/detail/detail.wxss */
+
+/* 冻结小程序标题栏 */
 .header{
   position: fixed;
   top:0;
@@ -20,6 +22,7 @@
   color: white;
 }
 
+/* 新闻标题 */
 .title{
   font-size: 48rpx;
   line-height: 67rpx;
@@ -43,6 +46,7 @@
   text-align: right;
 }
 
+/* 新闻内容 */
 .content{
   margin:60rpx 30rpx 0 30rpx;
 }
@@ -57,7 +61,6 @@
   margin-bottom:0;
   width: 690rpx;
 }
-
 /* 有的图片下方并不是注释，但是type都是p，如何区分出来呢？暂时只能做align的区别。 */
 .content-image-text{
   text-align:center; 

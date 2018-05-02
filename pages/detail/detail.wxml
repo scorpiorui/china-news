@@ -1,9 +1,12 @@
 <!--pages/detail/detail.wxml-->
+
+<!--新闻标题栏-->
 <view class="header" bindtap='returnIndex'>
   <image class="header-image" src="/images/header-image.png"></image>
   <view class="header-title">返回频道</view>
 </view>
 
+<!--新闻标题-->
 <view class="title">{{detailTitle}}</view>
 <view class="addition-wrapper">
   <view class="source">{{detailSource}}</view>
@@ -11,10 +14,12 @@
   <view class="readCount">{{detailReadCount}}</view>
 </view>
 
+<!--新闻内容-->
 <view class="content">
   <view wx:for="{{detailContent}}" class="detailContent">
+  <!--根据type的区别来设计文字、图片、注释、小标题的样式。-->
     <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
-    <!--如果图片后面有p，则应该是图片的解释。-->
+    <!--如果图片后面有文字，则应该是图片的解释。但并不完全正确，如何区分已咨询论坛。-->
     <view wx:if="{{item.type==='p'& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
     <view wx:if="{{item.type==='p'& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
     <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>

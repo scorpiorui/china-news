@@ -1,21 +1,22 @@
 // pages/detail/detail.js
+var app = getApp()
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    detailTitle: "",
-    detailSource: "",
-    detailTime: "",
-    detailReadCount: "",
-    detailContent: [],
+    detailTitle: "",//新闻标题
+    detailSource: "",//新闻来源
+    detailTime: "",//新闻时间
+    detailReadCount: "",//新闻阅读数
+    nowReadCount:1,
+    detailContent: [],//新闻内容
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.nowReadCount)
     console.log(options)
     this.showNewsDetail(options)
   },
@@ -32,7 +33,7 @@ Page({
         let detailTitle = result.title
         let detailSource = (result.source === "") ? "来源不明" : result.source
         let detailTime = result.date.substring(11,16)
-        let detailReadCount = "阅读 "+result.readCount
+        let detailReadCount = "阅读 "+(result.readCount + this.data.nowReadCount)
         let detailContent = result.content
 
         this.setData({
@@ -40,8 +41,10 @@ Page({
           detailSource: detailSource,
           detailTime: detailTime,
           detailReadCount: detailReadCount,
-          detailContent: detailContent
+          detailContent: detailContent,
+          nowReadCount:this.data.nowReadCount+1
         })
+        console.log(this.data.nowReadCount)
       }
     })
   },

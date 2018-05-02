@@ -1,4 +1,6 @@
 /**index.wxss**/
+
+/**冻结标题和导航栏**/
 .header{
   position: fixed;
   top:0;
@@ -40,6 +42,7 @@
   text-decoration-line: underline;
 }
 
+/**定义第一则新闻以外的新闻List**/
 .news-item{
   display: flex;
   margin: 30rpx 0 0 15rpx;
@@ -77,7 +80,7 @@
   width: 200rpx;
 }
 
-/**定义第一个元素**/
+/**定义第一则新闻**/
 .first-news-item{
   position: relative;
   margin-top:250rpx;
@@ -94,11 +97,12 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
 .first-news-add-wrapper{
   color: white;
   bottom: 40rpx;
   margin-left: 45rpx;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5)
 }
 
 .first-news-image{

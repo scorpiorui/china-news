@@ -1,13 +1,18 @@
 //index.js
 
 Page({
+  //如果第一条新闻可以用nth-child进行布局则将相关函数和数据合并。
   data: {
-    newsList: [],
-    firstnews:[]
+    firstNews:[],//将第一则新闻的元素放入firstnews
+    newsList: []//将其他新闻的元素放入newsList
   },
   onLoad() {
     this.showNews()
   },
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
+  },
+  //showNews根据点击的新闻类别动态显示新闻，默认为国内新闻。
   showNews(event) {
     let newsType = event ? event.currentTarget.id :"gn"//default news:gn
     let newsUrl = 'https://test-miniprogram.com/api/news/list'
@@ -18,7 +23,9 @@ Page({
       },
       success: res => {
         let articles = res.data.result
+        //firstNews为第一则新闻的标题、来源、时间、图片的集合，其中来源和图片为空则显示默认值，时间只显示hh:mm.
         let firstNews = [articles[0].id,articles[0].title, (articles[0].source === "") ? "来源不明" : articles[0].source, articles[0].date.substring(11, 16),(articles[0].firstImage === "") ? "images/default-news.jpg" : articles[0].firstImage]
+        //newsList为其他新闻的标题、来源、时间、图片的集合，其中来源和图片为空则显示默认值，时间只显示hh:mm.
         let newsList = []
         for (let i = 1; i < articles.length; i += 1) {
           newsList.push({
@@ -36,13 +43,13 @@ Page({
       }
     })
   },
-  //tap the first news
+  //点击第一条新闻调用onTapFirstNews() 
   onTapFirstNews() {
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + this.data.firstNews[0],
     })
   },
-  //tap other news
+  //点击其他新闻调用onTapNewsList(event)
   onTapNewsList(event) {
     console.log(event)
     let index = event.currentTarget.id
