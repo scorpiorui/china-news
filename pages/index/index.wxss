@@ -1,4 +1,21 @@
 /**index.wxss**/
+.header{
+  display: flex;
+  height: 150rpx;
+  background-color: #4db8ff
+}
+.header-image{
+  margin:70rpx 15rpx 10rpx;
+  width:70rpx;
+  height: 70rpx;
+}
+.header-title{
+  margin:80rpx 0 20rpx;
+  font-size:40rpx;
+  line-height: 56rpx;
+  color: white;
+}
+
 .nav-bar{
   display: flex;
   background:linear-gradient(#4db8ff, #1aa3ff);

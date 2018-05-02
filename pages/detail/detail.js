@@ -44,5 +44,10 @@ Page({
         })
       }
     })
+  },
+  returnIndex(){
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })

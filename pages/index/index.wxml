@@ -1,4 +1,8 @@
 <!--index.wxml-->
+<view class="header">
+  <image class="header-image" src="/images/header-image.png"></image>
+  <view class="header-title">大熊猫新闻频道</view>
+</view>
 
 <view class="nav-bar">
   <view class="nav" id="gn" bindtap='showNews'>国内</view>

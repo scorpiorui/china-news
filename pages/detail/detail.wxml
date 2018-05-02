@@ -1,4 +1,9 @@
 <!--pages/detail/detail.wxml-->
+<view class="header" bindtap='returnIndex'>
+  <image class="header-image" src="/images/header-image.png"></image>
+  <view class="header-title">返回频道</view>
+</view>
+
 <view class="title">{{detailTitle}}</view>
 <view class="addition-wrapper">
   <view class="source">{{detailSource}}</view>
@@ -8,7 +13,7 @@
 
 <view class="content">
   <view wx:for="{{detailContent}}" class="detailContent">
-    <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}"></image>
+    <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
     <!--如果图片后面有p，则应该是图片的解释。-->
     <view wx:if="{{item.type==='p'& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
     <view wx:if="{{item.type==='p'& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
