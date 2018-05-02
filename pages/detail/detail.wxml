@@ -7,8 +7,11 @@
 </view>
 
 <view class="content">
-<view wx:for="{{detailText}}" class="text">
-  <view class="text-p">{{item.text}}</view>
-</view>
-<image class="image" src="{{detailImage}}" mode="aspectFit"></image>
+  <view wx:for="{{detailContent}}" class="detailContent">
+    <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}"></image>
+    <!--如果图片后面有p，则应该是图片的解释。-->
+    <view wx:if="{{item.type==='p'& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
+    <view wx:if="{{item.type==='p'& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
+    <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>
+  </view>
 </view>

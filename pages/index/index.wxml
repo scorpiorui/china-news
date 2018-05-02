@@ -10,9 +10,7 @@
   <view class="nav" id="other" bindtap='showNews'>其他</view>
 </view>
 
-<!--暂时无法直接使用news-image的first child（可能因为wx：for只能使用
-news-item的first child）来改变css，因此单独添加第一则新闻。缺点是JS因
-此会更加复杂。之后考虑能不能解决该问题。-->
+<!--暂时无法直接使用news-image的first child（可能因为wx：for只能使用news-item的first child）来改变css，因此单独添加第一则新闻。缺点是JS因此会更加复杂。之后考虑能不能解决该问题。-->
 <view class='first-news-item' bindtap='onTapFirstNews'>
   <view class="first-news-text-wrapper">
     <view class="first-news-title">{{firstNews[1]}}</view>
