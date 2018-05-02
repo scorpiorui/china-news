@@ -1,8 +1,12 @@
 /* pages/detail/detail.wxss */
 .header{
+  position: fixed;
+  top:0;
   display: flex;
   height: 150rpx;
-  background-color: #4db8ff
+  width: 750rpx;
+  background-color: #4db8ff;
+  z-index:99999
 }
 .header-image{
   margin:70rpx 15rpx 10rpx;
@@ -19,7 +23,7 @@
 .title{
   font-size: 48rpx;
   line-height: 67rpx;
-  margin:30rpx 15rpx 30rpx 15rpx;
+  margin:180rpx 15rpx 30rpx 15rpx;
 }
 .addition-wrapper{
   position: relative;
