@@ -3,6 +3,7 @@
 Page({
   //如果第一条新闻可以用nth-child进行布局则将相关函数和数据合并。
   data: {
+    navList: [{ id: "gn", text: "国内" }, { id: "gj", text: "国际" }, { id: "cj", text: "财经" }, { id: "yl", text: "娱乐" }, { id: "js", text: "军事" }, { id: "ty", text: "体育" }, { id: "other", text: "其他" }],//wx:for新闻分类
     firstNews:[],//将第一则新闻的元素放入firstnews
     newsList: []//将其他新闻的元素放入newsList
   },

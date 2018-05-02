@@ -8,13 +8,9 @@ Page({
     detailSource: "",//新闻来源
     detailTime: "",//新闻时间
     detailReadCount: "",//新闻阅读数
-    nowReadCount:1,
+    nowReadCount:1,//计数 问题在于只能增加一次，可能要通过缓存解决
     detailContent: [],//新闻内容
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     console.log(this.data.nowReadCount)
     console.log(options)
@@ -44,10 +40,10 @@ Page({
           detailContent: detailContent,
           nowReadCount:this.data.nowReadCount+1
         })
-        console.log(this.data.nowReadCount)
       }
     })
   },
+  //返回首页
   returnIndex(){
     wx.navigateBack({
       delta: 1

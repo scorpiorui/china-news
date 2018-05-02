@@ -6,14 +6,10 @@
   <view class="header-title">大熊猫新闻频道</view>
 </view>
 
-<view class="nav-bar">
-  <view class="nav" id="gn" bindtap='showNews'>国内</view>
-  <view class="nav" id="gj" bindtap='showNews'>国际</view>
-  <view class="nav" id="cj" bindtap='showNews'>财经</view>
-  <view class="nav" id="yl" bindtap='showNews'>娱乐</view>
-  <view class="nav" id="js" bindtap='showNews'>军事</view>
-  <view class="nav" id="ty" bindtap='showNews'>体育</view>
-  <view class="nav" id="other" bindtap='showNews'>其他</view>
+<view class='nav-bar'>
+  <view class="nav" wx:for="{{navList}}">
+    <view id="{{item.id}}" bindtap='showNews'>{{item.text}}</view>
+  </view>
 </view>
 
 <!--暂时无法直接使用news-image的伪类来改变css，因此单独添加第一则新闻。缺点是JS因此会更加复杂。之后考虑能不能解决该问题，已经向论坛咨询。-->
