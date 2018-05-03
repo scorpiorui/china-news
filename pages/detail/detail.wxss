@@ -61,13 +61,14 @@
   margin-bottom:0;
   width: 690rpx;
 }
-/* 有的图片下方并不是注释，但是type都是p，如何区分出来呢？暂时只能做align的区别。 */
+/* 论坛Mentor：不用区分图片注释和文本 
 .content-image-text{
   text-align:center; 
   font-size:38rpx;
   line-height: 53rpx;
   margin: 30rpx 0 38rpx;
 }
+*/
 .content-strong{
   font-size:40rpx;
   line-height: 56rpx;

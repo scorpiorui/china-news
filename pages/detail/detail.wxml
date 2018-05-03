@@ -19,9 +19,11 @@
   <view wx:for="{{detailContent}}" class="detailContent">
   <!--根据type的区别来设计文字、图片、注释、小标题的样式。-->
     <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
-    <!--如果图片后面有文字，则应该是图片的解释。但并不完全正确，如何区分已咨询论坛。-->
-    <view wx:if="{{item.type==='p'& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
-    <view wx:if="{{item.type==='p'& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
+    <!--论坛Mentor：不用区分图片注释和文本 
+    <view wx:if="{{item.type==='p'&& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
+    <view wx:if="{{item.type==='p'&& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
+    -->
+    <view wx:if="{{item.type==='p'}}" class="content-text">{{item.text}}</view>
     <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>
   </view>
 </view>
