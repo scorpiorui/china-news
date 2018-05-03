@@ -27,7 +27,7 @@ Page({
         console.log(res)
         let result = res.data.result
         let detailTitle = result.title
-        let detailSource = (result.source === "") ? "来源不明" : result.source
+        let detailSource = !result.source ? "来源不明" : result.source
         let detailTime = result.date.substring(11,16)
         let detailReadCount = "阅读 "+(result.readCount + this.data.nowReadCount)
         let detailContent = result.content

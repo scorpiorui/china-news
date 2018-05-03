@@ -16,6 +16,7 @@ Page({
     this.showNews()
   },
   onPullDownRefresh: function () {
+    console.log()
     this.showNews(() => {
       wx.stopPullDownRefresh()
     })
@@ -55,7 +56,8 @@ Page({
             firstNewsTitle: firstNewsTitle,
             firstNewsSource: firstNewsSource,
             firstNewsTime: firstNewsTime,
-            firstNewsImage: firstNewsImage
+            firstNewsImage: firstNewsImage,
+            defaultNewsType: newsType
           })
         }else{
           wx.showToast({
