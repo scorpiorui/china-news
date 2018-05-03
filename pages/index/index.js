@@ -68,7 +68,7 @@ Page({
       }
     })
   },
-  //点击第一条新闻调用onTapFirstNews() 
+  //点击新闻调用onTapNews() 
   onTapNews(event) {
     let index = !event.currentTarget.id ? this.data.firstNewsId : event.currentTarget.id
     wx.navigateTo({
