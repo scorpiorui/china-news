@@ -21,6 +21,15 @@ Page({
       wx.stopPullDownRefresh()
     })
   },
+  //点击新闻类别调用onTapNewsType
+  onTapNewsType(event) {
+    console.log(event)
+    let newsType = event.currentTarget.id
+    this.setData({
+      currentNewsType: newsType
+    })
+    this.getNews(newsType)
+  },
   //getNews通过拿到的新闻类别获取新闻清单
   getNews(newsType,callback){
     console.log(newsType)
@@ -69,15 +78,6 @@ Page({
         callback && callback()
       }
     })
-  },
-  //点击新闻类别调用onTapNewsType
-  onTapNewsType(event) {
-    console.log(event)
-    let newsType = event.currentTarget.dataset.type
-    this.setData({
-      currentNewsType: newsType
-    })
-    this.getNews(newsType)
   },
   //点击新闻调用onTapNews() 
   onTapNews(event) {

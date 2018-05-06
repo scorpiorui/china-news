@@ -47,33 +47,37 @@
 /**定义第一则新闻以外的新闻List**/
 .news-item{
   display: flex;
-  margin: 30rpx 0 0 15rpx;
+  margin: 30rpx 15rpx;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  height: 260rpx;
+  height: 220rpx
+}
+.news-wrapper{
+  display: flex;
+  flex-direction: column
 }
 
 .news-title{
-  margin-right: 260rpx;
+  width: 500rpx;
+  margin-right: 15rpx;
   font-size: 38rpx;
   line-height: 53rpx;
 }
-.news-add-wrapper,.first-news-add-wrapper{
-  position: absolute;
-  bottom: 30rpx;
+
+.news-add-wrapper{
+  margin-top: 15rpx;
   opacity: 0.8;
   font-size: 30rpx;
-  line-height: 30rpx;
+  line-height: 42rpx;
   display: flex;
 }
 .news-time,.first-news-time{
   margin-left:15rpx;
 }
+
 .news-image{
-  position: absolute;
-  right:30rpx;
+  margin-right:15rpx;
   height:150rpx;
-  width: 200rpx;
+  width: 200rpx
 }
 
 /**定义第一则新闻**/
@@ -84,27 +88,33 @@
   height: 560rpx;
 }
 
-.first-news-title{
-  position:absolute;
-  bottom:100rpx;
-  margin: 0 45rpx 0 45rpx;
-  font-size: 38rpx;
-  line-height: 53rpx;
+.first-news-text-wrapper{
+  position: absolute;
+  top:350rpx;
+  margin: 0 30rpx 30rpx;
+  display: flex;
+  flex-direction: column;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.first-news-title{
+  margin: 0 15rpx 15rpx;
+  font-size: 38rpx;
+  line-height: 53rpx
+}
+
 .first-news-add-wrapper{
-  color: white;
-  bottom: 40rpx;
-  margin-left: 45rpx;
-  background-color: rgba(0, 0, 0, 0.5)
+  margin: 0 15rpx 0;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  display: flex;
 }
 
 .first-news-image{
   width: 700rpx; 
   height: 500rpx;
-  border: 30rpx solid rgba(255, 255, 255, .2)
+  margin: 30rpx;
 }
 
 .first-news-backImage{
