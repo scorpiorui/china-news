@@ -36,9 +36,7 @@
   color: white;
   font-size: 38rpx;
 }
-/**请问老师，为什么移动端不支持hover，但是这里可以选择hover呢？
-以及如果不能使用hover要怎么实现点击保留效果呢？我尝试了hover-class，
-但是好像不借助js不能做出点击另一则类别取消当前效果**/
+/**点击新闻类别效果**/
 .nav-hover{
   font-weight: bold;
   font-size: 40rpx;
@@ -53,13 +51,7 @@
   position: relative;
   height: 260rpx;
 }
-/** 论坛Mentor：目前微信小程序官方文档没有说明支持first-child和nth-child()
-.news-item:nth-child(2){
-  height: 500rpx;
-  margin:30rpx 15rpx 15rpx 15rpx;
-  background-color: yellow;
-}
-**/
+
 .news-title{
   margin-right: 260rpx;
   font-size: 38rpx;
@@ -109,7 +101,7 @@
 }
 
 .first-news-image{
-  width: 700rpx; /**为什么超出去反而border可以是透明**/
+  width: 700rpx; 
   height: 500rpx;
   border: 30rpx solid rgba(255, 255, 255, .2)
 }

@@ -61,14 +61,7 @@
   margin-bottom:0;
   width: 690rpx;
 }
-/* 论坛Mentor：不用区分图片注释和文本 
-.content-image-text{
-  text-align:center; 
-  font-size:38rpx;
-  line-height: 53rpx;
-  margin: 30rpx 0 38rpx;
-}
-*/
+
 .content-strong{
   font-size:40rpx;
   line-height: 56rpx;

@@ -21,9 +21,5 @@
     <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
     <view wx:if="{{item.type==='p'}}" class="content-text">{{item.text}}</view>
     <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>
-    <!--论坛Mentor：不用区分图片注释和文本 
-    <view wx:if="{{item.type==='p'&& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
-    <view wx:if="{{item.type==='p'&& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
-    -->
   </view>
 </view>
