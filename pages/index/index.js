@@ -2,8 +2,9 @@
 
 Page({
   data: {
-    navList: [{ type: "gn", text: "国内" }, { type: "gj", text: "国际" }, { type: "cj", text: "财经" }, { type: "yl", text: "娱乐" }, { type: "js", text: "军事" }, { type: "ty", text: "体育" }, { type: "other", text: "其他" }],//wx:for新闻分类
-    currentNewsType:'',//默认app打开为国内新闻，之后通过showNews修改当前默认的新闻类别
+    navList: [{ id: "gn", text: "国内" }, { id: "gj", text: "国际" }, { id: "cj", text: "财经" }, { id: "yl", text: "娱乐" }, { id: "js", text: "军事" }, { id: "ty", text: "体育" }, { id: "other", text: "其他" }],//wx:for新闻分类
+    defaultNewsType:'gn',
+    currentNewsType:'',
     firstNewsId:'',
     firstNewsTitle:'',
     firstNewsSource:'',
@@ -12,7 +13,7 @@ Page({
     newsList: []//将其他新闻的元素放入newsList
   },
   onLoad() {
-    this.getNews("gn")
+    this.getNews(this.data.defaultNewsType)
   },
   onPullDownRefresh() {
     console.log("test")
