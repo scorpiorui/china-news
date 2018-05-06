@@ -16,14 +16,14 @@
 
 <!--新闻内容-->
 <view class="content">
-  <view wx:for="{{detailContent}}" class="detailContent">
-  <!--根据type的区别来设计文字、图片、注释、小标题的样式。-->
+  <view wx:for="{{detailContent}}" class="detailContent" wx:key="unique">
+    <!--根据type的区别来设计文字、图片、注释、小标题的样式。-->
     <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
+    <view wx:if="{{item.type==='p'}}" class="content-text">{{item.text}}</view>
+    <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>
     <!--论坛Mentor：不用区分图片注释和文本 
     <view wx:if="{{item.type==='p'&& detailContent[index-1].type==='image'}}" class="content-image-text">{{item.text}}</view>
     <view wx:if="{{item.type==='p'&& detailContent[index-1].type!=='image'}}" class="content-text">{{item.text}}</view>
     -->
-    <view wx:if="{{item.type==='p'}}" class="content-text">{{item.text}}</view>
-    <view wx:if="{{item.type==='strong'}}" class="content-strong">{{item.text}}</view>
   </view>
 </view>

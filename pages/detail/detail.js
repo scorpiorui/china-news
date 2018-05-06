@@ -12,8 +12,6 @@ Page({
     detailContent: [],//新闻内容
   },
   onLoad: function (options) {
-    console.log(this.data.nowReadCount)
-    console.log(options)
     this.showNewsDetail(options)
   },
   showNewsDetail(options){

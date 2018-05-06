@@ -39,7 +39,7 @@
 /**请问老师，为什么移动端不支持hover，但是这里可以选择hover呢？
 以及如果不能使用hover要怎么实现点击保留效果呢？我尝试了hover-class，
 但是好像不借助js不能做出点击另一则类别取消当前效果**/
-.nav:hover{
+.nav-hover{
   font-weight: bold;
   font-size: 40rpx;
   text-decoration-line: underline;

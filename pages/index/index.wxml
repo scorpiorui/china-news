@@ -7,8 +7,8 @@
 </view>
 
 <view class='nav-bar'>
-  <view class="nav" wx:for="{{navList}}">
-    <view id="{{item.id}}" bindtap='showNews'>{{item.text}}</view>
+  <view wx:for="{{navList}}" wx:key="unique">
+    <view id="{{item.id}}" bindtap='onTapNewsType' class="nav {{(currentNewsType == item.id)?'hav-hover':''}}">{{item.text}}</view>
   </view>
 </view>
 
@@ -26,7 +26,7 @@
 </view>
 
 <!--除了第一则新闻外的其他新闻List-->
-<view wx:for="{{newsList}}" class="news-item">
+<view wx:for="{{newsList}}" class="news-item" wx:key="unique">
   <view class="news-title" id="{{item.id}}" bindtap="onTapNews">{{item.title}}</view>
   <view class="news-add-wrapper">
     <view class="news-source">{{item.source}}</view>
