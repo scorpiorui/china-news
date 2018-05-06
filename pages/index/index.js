@@ -2,8 +2,8 @@
 
 Page({
   data: {
-    navList: [{ id: "gn", text: "国内" }, { id: "gj", text: "国际" }, { id: "cj", text: "财经" }, { id: "yl", text: "娱乐" }, { id: "js", text: "军事" }, { id: "ty", text: "体育" }, { id: "other", text: "其他" }],//wx:for新闻分类
-    currentNewsType:"gn",//默认app打开为国内新闻，之后通过showNews修改当前默认的新闻类别
+    navList: [{ type: "gn", text: "国内" }, { type: "gj", text: "国际" }, { type: "cj", text: "财经" }, { type: "yl", text: "娱乐" }, { type: "js", text: "军事" }, { type: "ty", text: "体育" }, { type: "other", text: "其他" }],//wx:for新闻分类
+    currentNewsType:'',//默认app打开为国内新闻，之后通过showNews修改当前默认的新闻类别
     firstNewsId:'',
     firstNewsTitle:'',
     firstNewsSource:'',
@@ -12,22 +12,13 @@ Page({
     newsList: []//将其他新闻的元素放入newsList
   },
   onLoad() {
-    this.getNews(this.data.currentNewsType)
+    this.getNews("gn")
   },
   onPullDownRefresh() {
     console.log("test")
     this.getNews(this.data.currentNewsType,() => {
       wx.stopPullDownRefresh()
     })
-  },
-  //点击新闻类别调用onTapNews
-  onTapNewsType(event) {
-    console.log(event)
-    let newsType = event.target.id
-    this.setData({
-      currentNewsType:newsType
-    })
-    this.getNews(newsType)
   },
   //getNews通过拿到的新闻类别获取新闻清单
   getNews(newsType,callback){
@@ -40,6 +31,7 @@ Page({
       },
       success: res => {
         let articles = res.data.result
+        //如果获得的新闻不是空集
         if (articles && articles != []) {
           let firstNewsId = articles[0].id
           let firstNewsTitle = articles[0].title
@@ -68,7 +60,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '没有新闻了。',
+            title: '请选择新闻类别。',
           })
         }
       },
@@ -76,6 +68,15 @@ Page({
         callback && callback()
       }
     })
+  },
+  //点击新闻类别调用onTapNewsType
+  onTapNewsType(event) {
+    console.log(event)
+    let newsType = event.currentTarget.dataset.type
+    this.setData({
+      currentNewsType: newsType
+    })
+    this.getNews(newsType)
   },
   //点击新闻调用onTapNews() 
   onTapNews(event) {

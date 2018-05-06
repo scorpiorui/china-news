@@ -6,9 +6,10 @@
   <view class="header-title">大熊猫新闻频道</view>
 </view>
 
+<!--导航栏效果仍有问题：点击后class并不会增加hav-hover-->
 <view class='nav-bar'>
   <view wx:for="{{navList}}" wx:key="unique">
-    <view id="{{item.id}}" bindtap='onTapNewsType' class="nav {{(currentNewsType == item.id)?'hav-hover':''}}">{{item.text}}</view>
+    <view data-type='{{item.type}}' bindtap='onTapNewsType' class="nav {{(currentNewsType === item.type)?'hav-hover':''}}">{{item.text}}</view>
   </view>
 </view>
 
