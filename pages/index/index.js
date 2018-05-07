@@ -11,8 +11,7 @@ Page({
       { id: "ty", text: "体育" },
       { id: "other", text: "其他" }
     ],//wx:for新闻分类
-    defaultNewsType:'gn',
-    currentNewsType:'',
+    currentNewsType:'gn',
     firstNewsId:'',
     firstNewsTitle:'',
     firstNewsSource:'',
@@ -21,11 +20,10 @@ Page({
     newsList: []//将其他新闻的元素放入newsList
   },
   onLoad() {
-    this.getNews(this.data.defaultNewsType)
+    this.getNews()
   },
   onPullDownRefresh() {
-    console.log("test")
-    this.getNews(this.data.currentNewsType,() => {
+    this.getNews(() => {
       wx.stopPullDownRefresh()
     })
   },
@@ -36,16 +34,15 @@ Page({
     this.setData({
       currentNewsType: newsType
     })
-    this.getNews(newsType)
+    this.getNews()
   },
   //getNews通过拿到的新闻类别获取新闻清单
-  getNews(newsType,callback){
-    console.log(newsType)
+  getNews(callback){
     let newsUrl = 'https://test-miniprogram.com/api/news/list'
     wx.request({
       url: newsUrl,
       data: {
-        type: newsType,
+        type: this.data.currentNewsType,
       },
       success: res => {
         let articles = res.data.result
