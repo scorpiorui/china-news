@@ -2,7 +2,15 @@
 
 Page({
   data: {
-    navList: [{ id: "gn", text: "国内" }, { id: "gj", text: "国际" }, { id: "cj", text: "财经" }, { id: "yl", text: "娱乐" }, { id: "js", text: "军事" }, { id: "ty", text: "体育" }, { id: "other", text: "其他" }],//wx:for新闻分类
+    navList: [
+      { id: "gn", text: "国内" }, 
+      { id: "gj", text: "国际" }, 
+      { id: "cj", text: "财经" },
+      { id: "yl", text: "娱乐" },
+      { id: "js", text: "军事" },
+      { id: "ty", text: "体育" },
+      { id: "other", text: "其他" }
+    ],//wx:for新闻分类
     defaultNewsType:'gn',
     currentNewsType:'',
     firstNewsId:'',
@@ -43,15 +51,9 @@ Page({
         let articles = res.data.result
         //如果获得的新闻不是空集
         if (articles && articles != []) {
-          let firstNewsId = articles[0].id
-          let firstNewsTitle = articles[0].title
-          let firstNewsSource = !articles[0].source ? "来源不明" : articles[0].source
-          let firstNewsTime = articles[0].date.substring(11, 16)
-          let firstNewsImage = !articles[0].firstImage ? "images/default-news.jpg" : articles[0].firstImage
-
-          //newsList为其他新闻的标题、来源、时间、图片的集合，其中来源和图片为空则显示默认值，时间只显示hh:mm.
+          //取出数据到NewsList，为新闻的标题、来源、时间、图片的集合，其中来源和图片为空则显示默认值，时间只显示hh:mm.
           let newsList = []
-          for (let i = 1; i < articles.length; i += 1) {
+          for (let i = 0; i < articles.length; i += 1) {
             newsList.push({
               id: articles[i].id,
               title: articles[i].title,
@@ -60,6 +62,15 @@ Page({
               image: !articles[i].firstImage ? "images/default-news.jpg" : articles[i].firstImage
             })
           }
+          console.log(newsList)
+          //取出NewsList里的第一个元素，并删除
+          let firstNewsId = newsList[0].id
+          let firstNewsTitle = newsList[0].title
+          let firstNewsSource = newsList[0].source
+          let firstNewsTime = newsList[0].date
+          let firstNewsImage = newsList[0].image
+          newsList.splice(0, 1)
+          //赋值同步data
           this.setData({
             newsList: newsList,
             firstNewsId: firstNewsId,
@@ -70,7 +81,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '请选择新闻类别。',
+            title: '选择的新闻不存在或者网络出现问题',
           })
         }
       },
